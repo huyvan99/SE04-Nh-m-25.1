@@ -14,15 +14,8 @@ quét các tin tức trên Facebook cá nhân của mình
 Mục tiêu dài hạn 
   - Hoàn thiện module quét dữ liệu  
 3. How?
-Mọi người có thể tiếp cận qua những hình thức nào?
   - Cài đặt và sử dụng như tiện ích của Chrome Extension
-
-
-
-
-
-
-
+  - Sau khi đã có 1 số lượng ổn định nguồn cung cấp dữ liệu, tiến hành viết 1 chương trình đón bắt và lưu trữ dữ liệu, lưu trên elasticsearch.
 …
 
 
