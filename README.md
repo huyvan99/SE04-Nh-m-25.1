@@ -10,3 +10,8 @@ Students: Nguyễn Đình Nguyên
           Vũ Trung Kiên
           Chu Việt Long
           Nguyễn Văn Huy
+          
+ # CÀI ĐẶT
+ Ngôn ngữ sử dụng - Python
+ Thư viện - selenium
+ 
