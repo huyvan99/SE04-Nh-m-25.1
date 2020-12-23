@@ -12,6 +12,6 @@ Students: Nguyễn Đình Nguyên
           Nguyễn Văn Huy
           
  # CÀI ĐẶT
- Ngôn ngữ sử dụng - Python
- Thư viện - selenium
+Ngôn ngữ sử dụng - Python
+Thư viện - selenium
  
