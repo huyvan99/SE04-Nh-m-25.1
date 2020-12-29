@@ -23,6 +23,8 @@ Students:
   - Phân loại theo chủ đề dựa vào từ khóa chính
           
  ## Kiến trúc hệ thống 
+ - Dữ liệu được thu thập từ Facebook bằng Chrome Extension, đưa ra dưới dạng Json Object. Và được lưu trữ trên Server trực tuyến.
+ - Sử dụng Elasticsearch để tiến hành xử lý dữ liệu từ Server.
  
  ## Cài Đặt
  - Chrome Extension
