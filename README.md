@@ -7,10 +7,10 @@ https://www.facebook.com/inforetechnology
 
 Teacher: Bùi Sỹ Nguyên
 
-Students: - Nguyễn Đình Nguyên
-          - Vũ Trung Kiên
-          - Chu Việt Long
-          - Nguyễn Văn Huy
+Students: * Nguyễn Đình Nguyên
+          * Vũ Trung Kiên
+          * Chu Việt Long
+          * Nguyễn Văn Huy
           
 # Ý tưởng dự án
 - Social Listening (Lắng nghe mạng xã hội) thực chất là một bài toán thu thập (Crawl) các loại dữ liệu theo yêu cầu của người sử dụng và từ dữ liệu đó đưa ra các đánh giá, phân tích phục vụ các mục đích khác.
