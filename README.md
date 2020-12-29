@@ -4,7 +4,7 @@ Social Listening
 InfoRe technology company
 <space><space>
 https://www.facebook.com/inforetechnology 
-<space>
+<space><space>
 Mentor: Lê Công Thành
 
 Teacher: Bùi Sỹ Nguyên
