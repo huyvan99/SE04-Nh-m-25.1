@@ -25,8 +25,13 @@ Students:
  ## Kiến trúc hệ thống 
  
  ## Cài Đặt
- ### Chrome Extension
- - Download tệp chrome_extension, mở phần tiện ích mở rộng Extensions trên trình duyệt Google, bật Developer Mode, Load unpacked file nén của chrome_extension, bật lên và sử dụng như các tiện ích khác.  
+ - Chrome Extension
+   - Download tệp chrome_extension 
+   - Trên trình duyệt Google mở tiện ích Extensions
+   - Chọn Developer Mode
+   - Load unpacked: file nén của chrome_extension 
+   - Bật lên và sử dụng như các tiện ích khác
+   
  - Ngôn ngữ sử dụng - Python
  - Thư viện - selenium
  
