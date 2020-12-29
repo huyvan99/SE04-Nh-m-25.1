@@ -1,11 +1,9 @@
-# SE04-Nhóm-25.1
-Social Listening
+# Social Listening
+Mentor: Lê Công Thành
 
 InfoRe technology company
 
 https://www.facebook.com/inforetechnology 
-
-Mentor: Lê Công Thành
 
 Teacher: Bùi Sỹ Nguyên
 
