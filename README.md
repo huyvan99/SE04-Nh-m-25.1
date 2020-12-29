@@ -7,7 +7,8 @@ https://www.facebook.com/inforetechnology
 
 Teacher: Bùi Sỹ Nguyên
 
-Students: * Nguyễn Đình Nguyên
+Students: 
+* Nguyễn Đình Nguyên
           * Vũ Trung Kiên
           * Chu Việt Long
           * Nguyễn Văn Huy
