@@ -1,4 +1,4 @@
-# Social Listening
+# SOCIAL LISTENING
 Mentor: Lê Công Thành
 
 InfoRe technology company
