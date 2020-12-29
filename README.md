@@ -2,7 +2,7 @@
 Social Listening
 
 InfoRe technology company
-<space> https://www.facebook.com/inforetechnology <space>
+<space>https://www.facebook.com/inforetechnology<space>
 https://www.facebook.com/inforetechnology 
 <space><space>
 Mentor: Lê Công Thành
