@@ -2,6 +2,9 @@ console.log("Content is running");
 var posts = [];
 var comments = [];
 var users = [];
+var seemores = [];
+var loadcomment = [];
+
 function scrollDown() {
     window.scrollBy(0, 10000);
 }
@@ -35,31 +38,38 @@ function getUser() {
 }
 function getUserAndComment() {
     console.log("getUserandComment running")
-    users = document.getElementsByClassName("pq6dq46d");
-    comments = document.getElementsByClassName("kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x c1et5uql");
-    console.log(users.length, comments.length);
-    // console.log(posts.length);
-    let cmt = [];
-    let usert = [];
-    for (var i = 0; i < users.length; i++) {
-        if (users[i].className == 'pq6dq46d') {
-            usert.push(users[i]);
+    tmp = document.getElementsByClassName("tw6a2znq sj5x9vvc d1544ag0 cxgpxx05");
+    for (var i = 0; i < tmp.length; i++) {
+        if (tmp[i].className == "tw6a2znq sj5x9vvc d1544ag0 cxgpxx05") {
+            if (tmp[i].children.length > 1)
+                console.log(tmp[i].children[0].textContent, ": ", tmp[i].children[1].textContent);
         }
-    }
-    for (var i = 0; i < comments.length; i++) {
-        if (comments[i].className == 'kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x c1et5uql') {
-            cmt.push(comments[i]);
-        }
-    }
-    console.log(usert.length, cmt.length);
-    for (var i = 0; i < usert.length; i++) {
-        console.log(usert[i].textContent,": ",cmt[i].textContent);  
     }
 }
-window.setTimeout(getPost, 10000);
-window.setTimeout(getComment, 15000);
-window.setTimeout(getUser, 15000);
-window.setTimeout(getUserAndComment, 15000);
-console.log("kiin")
+function seeMoreComment() {
+    loadcomment = document.getElementsByClassName("gtad4xkn");
+    for (let load of loadcomment) {
+        load.click();
+    }
+    seemore = document.getElementsByClassName("j83agx80 fv0vnmcu hpfvmrgz");
+    for (let btn of seemore) {
+        if (btn.click()) {
+            btn.click();
+        }
+    }
+}
+function main() {
+    console.log("enter main")
+    window.setTimeout(getPost, 10000);
+    window.setTimeout(seeMoreComment, 10000);
+    window.setTimeout(getUserAndComment, 15000);
+}
+function scrollEvent() {
+    window.onscroll = function (event) {
+        console.log("scrolled");
+        main();
+    };
+}
+window.setTimeout(scrollEvent,5000);
 // Bắt comment
 
