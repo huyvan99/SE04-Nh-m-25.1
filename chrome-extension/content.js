@@ -4,6 +4,7 @@ var comments = [];
 var users = [];
 var seemores = [];
 var loadcomment = [];
+var scroll = 3000;
 
 function scrollDown() {
     window.scrollBy(0, 10000);
@@ -83,16 +84,25 @@ function writeToJSON() {
 
 function main() {
     console.log("enter main")
-    window.setTimeout(getPost, 10000);
-    window.setTimeout(seeMoreComment, 10000);
-    window.setTimeout(getUserAndComment, 15000);
+    getPost();
+    seeMoreComment();
+    getUserAndComment();
 }
 function scrollEvent() {
     window.onscroll = function (event) {
+        window.setTimeout(main, 5000);
         console.log("scrolled");
         main();
     };
 }
-window.setTimeout(scrollEvent, 5000);
-// Bắt comment
+function check() {
+    console.log("running");
+}
+window.addEventListener('wheel', function () {
+    if (window.scrollY > scroll) {
+        scroll += 3000;
+        console.log(scroll);
+        main();
+    }
+});
 
