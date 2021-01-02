@@ -1,108 +1,156 @@
 console.log("Content is running");
-var posts = [];
-var comments = [];
+var containers = [];
+var usersContainer = [];
+var postsContainer = [];
 var users = [];
-var seemores = [];
-var loadcomment = [];
-var scroll = 3000;
+var posts = [];
+var commentContainer = [];
+var commentContent = [];
 
-function scrollDown() {
-    window.scrollBy(0, 10000);
-}
-function getPost() {
-    console.log("getPost running")
-    posts = document.getElementsByClassName("kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x c1et5uql ii04i59q");
-    console.log(posts.length, " bài post lấy được");
-    for (let post of postContent) {
-        console.log(posts.textContent);
-    }
-}
-function getComment() {
-    console.log("getComment running")
-    comments = document.getElementsByClassName("kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x c1et5uql");
-    console.log(comments.length, " số comment");
-    for (var i = 0; i < comments.length; i++) {
-        if (comments[i].className == 'kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x c1et5uql') {
-            console.log(comments[i].textContent);
+//---------------------------CONTENT---------------------------//
+
+function getContainers() {
+    //Lấy phần khung chứa 1 bài post
+    containers = [];
+    usersContainer = [];
+    var posts = document.getElementsByClassName("j83agx80 cbu4d94t");
+    for (let item of posts) {
+        if (item.className == "j83agx80 cbu4d94t") {
+            containers.push(item);
         }
     }
+    console.log(containers.length, " bài viết lấy được");
+    //end
+    //lấy khung chứa thông tin người post bài
+    for (var i = 0; i < containers.length; i++) {
+        usersContainer.push(containers[i].querySelectorAll('[class="buofh1pr"]')[0]);
+    }
+    console.log(usersContainer.length, " người post bài");
+    //end
+
+    console.log(".....Loading Comment Container");
+    for (var i = 0; i < containers.length; i++) {
+        commentContainer.push(containers[i].getElementsByClassName("stjgntxs ni8dbmo4 l82x9zwi uo3d90p7 h905i5nu monazrh9")[0]);
+    }
+    console.log("-----Loaded-----")
+    for (var i = 0; i < containers.length; i++) {
+        commentContent.push(containers[i].getElementsByClassName("cwj9ozl2 tvmbv18p")[0]);
+    }
 }
-function getUser() {
-    console.log("getUser running")
-    users = document.getElementsByClassName("pq6dq46d");
-    console.log(users.length, " người comment số bài viết của bạn");
-    for (var i = 0; i < users.length; i++) {
-        if (users[i].className == 'pq6dq46d') {
-            console.log(users[i].textContent);
+function getUser(index) {
+    return index.getElementsByClassName("nc684nl6")[0].textContent;
+}
+// Lấy nội dung bài viết
+function loadPost(index) {
+
+}
+function getPostsContent(index) {
+    if (index.getElementsByClassName("ecm0bbzt hv4rvrfc ihqw7lf3 dati1w0a")[0] == undefined && index.getElementsByClassName("kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x c1et5uql")[0] == undefined) {
+        return "null";
+    } else if (index.getElementsByClassName("ecm0bbzt hv4rvrfc ihqw7lf3 dati1w0a")[0] == undefined) {
+        return index.getElementsByClassName("kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x c1et5uql")[0].textContent;
+    } else {
+        return index.getElementsByClassName("ecm0bbzt hv4rvrfc ihqw7lf3 dati1w0a")[0].textContent;
+    }
+}
+
+//------------------------------------END CONTENT---------------------------------//
+//------------------------------------GET LINK-----------------------------------//
+function getLinkPost(index) {
+    temp = index.querySelectorAll('[class = "qzhwtbm6 knvmm38d"]')[1];
+    if (temp.querySelectorAll('a[role="link"]')[0] == undefined) return
+    else return temp.querySelectorAll('a[role="link"]')[0].getAttribute("href");
+}
+//------------------------------------END GET LINK-------------------------------//
+//Get reaction
+function getReaction(index) {
+    reactionArray = [];
+    if (index.querySelectorAll('[aria-label="See who reacted to this"]')[0] == undefined) {
+        return "no reaction";
+    }
+    else {
+        reactionContainer = index.querySelectorAll('[aria-label="See who reacted to this"]')[0];
+        reaction = reactionContainer.querySelectorAll('[role="button"]');
+        for (var i = 0; i < reaction.length; i++) {
+            console.log(reaction[i].getAttribute('aria-label'));
+            reactionArray.push(reaction[i].getAttribute('aria-label'));
         }
     }
+    var myJsonString = JSON.stringify(reactionArray);
+    return myJsonString;
+
 }
-function getUserAndComment() {
-    console.log("getUserandComment running")
-    tmp = document.getElementsByClassName("tw6a2znq sj5x9vvc d1544ag0 cxgpxx05");
-    for (var i = 0; i < tmp.length; i++) {
-        if (tmp[i].className == "tw6a2znq sj5x9vvc d1544ag0 cxgpxx05") {
-            if (tmp[i].children.length > 1)
-                console.log(tmp[i].children[0].textContent, ": ", tmp[i].children[1].textContent);
+//End get reaction
+
+//get comment
+function getComment(index) {
+    if (index.querySelectorAll('[class = "bp9cbjyn j83agx80 pfnyh3mw p1ueia1e"]')[0] == undefined) return null;
+    else {
+        temp = index.querySelectorAll('[class = "bp9cbjyn j83agx80 pfnyh3mw p1ueia1e"]')[0].children;
+        commentAndShare = [];
+        for (let item of temp) {
+            commentAndShare.push(item.textContent);
         }
+        return { "comment": commentAndShare[0], "share": commentAndShare[1] };
     }
 }
-function seeMoreComment() {
-    loadcomment = document.getElementsByClassName("gtad4xkn");
-    for (let load of loadcomment) {
-        load.click();
-    }
-    seemore = document.getElementsByClassName("j83agx80 fv0vnmcu hpfvmrgz");
-    for (let btn of seemore) {
-        if (btn.click()) {
-            btn.click();
-        }
+//end get comment
+
+
+//------------------------------------LOAD COMMENT----------------------------------//
+
+
+function loadMoreComment(commentCon) {
+    if (commentCon.getElementsByClassName("j83agx80 fv0vnmcu hpfvmrgz")[0] == undefined) {
+        console.log("break loadmorecomment");
+        return;
+    } else {
+        //load more cmt
+        commentCon.getElementsByClassName("j83agx80 fv0vnmcu hpfvmrgz")[0].click();
+        console.log(".......Comment Loaded")
     }
 }
-function writeToJSON() {
-    var saveData = (function () {
-        var a = document.createElement("a");
-        document.body.appendChild(a);
-        a.style = "display: none";
-        return function (data, fileName) {
-            var json = JSON.stringify(data),
-                blob = new Blob([json], { type: "octet/stream" }),
-                url = window.URL.createObjectURL(blob);
-            a.href = url;
-            a.download = fileName;
-            a.click();
-            window.URL.revokeObjectURL(url);
-        };
-    }());
-
-    var data = { x: 42, s: "hello, world", d: new Date() },
-        fileName = "my-download.json";
-
-    saveData(data, fileName);
+function loadAllComment() {
+    for (var i = 0; i < commentContainer.length; i++) {
+        loadMoreComment(commentContainer[i]);
+    }
 }
-
-
+function getCommentOfPost(conmentCon) {
+    tmp = commentCon.querySelectorAll('[class="kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x c1et5uql"]');
+    return tmp;
+}
+//export to json
+var postid = 0;
+var jsonObject = [];
+function exportToJsonFile(jsonData) {
+    jsonObject = [];
+    console.log('runnig');
+    let dataStr = JSON.stringify(jsonData);
+    let dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
+    let exportFileDefaultName = 'data.json';
+    let linkElement = document.createElement('a');
+    linkElement.setAttribute('href', dataUri);
+    linkElement.setAttribute('download', exportFileDefaultName);
+    linkElement.click();
+    console.log('end export')
+}
 function main() {
-    console.log("enter main")
-    getPost();
-    seeMoreComment();
-    getUserAndComment();
-}
-function scrollEvent() {
-    window.onscroll = function (event) {
-        window.setTimeout(main, 5000);
-        console.log("scrolled");
-        main();
-    };
-}
-function check() {
-    console.log("running");
-}
-window.addEventListener('wheel', function () {
-    if (window.scrollY > scroll) {
-        scroll += 3000;
-        console.log(scroll);
-        main();
+    jsonObject = [];
+    getContainers();
+    for (var i = 0; i < containers.length; i++) {
+        console.log({ "postid": i, "poster": getUser(usersContainer[i]), "postContent": getPostsContent(containers[i]) });
+        jsonObject.push({ "postid": i, "poster": getUser(usersContainer[i]), "postContent": getPostsContent(containers[i]), "linkPost": getLinkPost(containers[i]), "reaction": { "react": getReaction(containers[i]) }, "Interactive": getComment(containers[i]) });
+        console.log('run1st')
     }
-});
+    // if (containers.length > 100) {
+    console.log(jsonObject.length);
+    exportToJsonFile(jsonObject);
+    // }
+}
 
+//------------------------END LOAD COMMENT------------------------//
+//work flow -> lay toan bo cac bai post vao container.
+// window.setTimeout(main,10000);
+//scroll event
+window.addEventListener("click", main);
+//end scroll event
