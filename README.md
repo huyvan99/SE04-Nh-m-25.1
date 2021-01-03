@@ -32,8 +32,10 @@ Students:
    - Trên trình duyệt Google mở tiện ích Extensions
    - Chọn Developer Mode
    - Load unpacked: file nén của chrome_extension 
-   - Bật lên và sử dụng như các tiện ích khác
+   - Bật lên và sử dụng như các tiện ích khác 
    
- - Ngôn ngữ sử dụng - Python
- - Thư viện - selenium
+ - Elasticsearch: 7.10.1
+ - Kibana: 7.10.1
  
+ - Python:
+   - Thư viện: Selenium
